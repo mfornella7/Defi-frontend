@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import { compose }          from 'redux';
 
+import Borrow               from '../../components/Borrow';
+
 import Img_Background       from '../../assets/image/home/bg.png';
 import Img_LendBalance      from '../../assets/image/home/lendbalance.png';
 import Img_BorrowBalance    from '../../assets/image/home/borrowbalance.png';
@@ -22,6 +24,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      page: 1,
       assets_lend: [
         { name: 'Tether', apm: 0.13, wallet: 1010.22, liquidity: 9.15, imgUrl: Img_Tether},
         { name: 'USD Coin', apm: 2.45, wallet: 1010.22, liquidity: 120.12, imgUrl: Img_USDCoin},
@@ -42,7 +45,7 @@ class Home extends Component {
       ],
     }
   }
-  render() {
+  renderHome() {
     return (
       <div className="Home">
         <div className="gradient-back">
@@ -159,7 +162,25 @@ class Home extends Component {
           </div>
         </div>
       </div>
-    )
+    );
+  }
+
+  render() {
+    if (this.state.page === 0)
+      return (
+        <div>
+          {this.renderHome()}
+        </div>
+      )
+    if (this.state.page === 1)     
+      return (
+        <div className="Home">
+          <div className="gradient-back">
+            <img src={Img_Background} className="img_bg" alt=""/>
+          </div>
+          <Borrow/>
+        </div>
+      )
   }
 }
 
