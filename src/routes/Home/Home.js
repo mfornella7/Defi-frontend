@@ -176,6 +176,7 @@ class Home extends Component {
     if (this.state.page === 1)     
       return (
         <div className="Home">
+          <div className="back"/>
           <div className="gradient-back">
             <img src={Img_Background} className="img_bg" alt=""/>
           </div>

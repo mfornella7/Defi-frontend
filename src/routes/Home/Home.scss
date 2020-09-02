@@ -218,14 +218,14 @@
                         padding: 10px 15px;
                         display: flex;
                         flex-direction: row;
-                        border-bottom: 3px solid $color_grey;
+                        border-bottom: 1px solid $color_grey;
                         cursor: pointer;
                         &.noborder {
                             border-bottom: none;
                         }
                         &:hover {
                             background-color: $color_hover;
-                            border-bottom: 2px solid $color_hover;
+                            border-bottom: 1px solid $color_hover;
                             box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
                         }
                         .cell {
