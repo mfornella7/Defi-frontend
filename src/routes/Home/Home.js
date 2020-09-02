@@ -24,7 +24,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1,
+      page: 0,
       assets_lend: [
         { name: 'Tether', apm: 0.13, wallet: 1010.22, liquidity: 9.15, imgUrl: Img_Tether},
         { name: 'USD Coin', apm: 2.45, wallet: 1010.22, liquidity: 120.12, imgUrl: Img_USDCoin},
