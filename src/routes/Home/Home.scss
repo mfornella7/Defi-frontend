@@ -54,6 +54,7 @@
             min-width: 1200px;
             margin: 0 auto;
             margin-top: 40px;
+            justify-content: space-between;
             @media screen and (max-width: 1240px) {
                 margin: 40px 20px 0 20px;
                 min-width: 100px;
@@ -61,7 +62,7 @@
             .balance-block {
                 display: flex;
                 flex-direction: row;
-                width: 50%;
+                width: calc(50% - 20px);
                 .balance-detail {
                     display: flex;
                     flex-direction: column;
