@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import { compose }          from 'redux';
 
-import Borrow               from '../../components/Borrow';
-
 import Img_Background       from '../../assets/image/home/bg.png';
 import Img_LendBalance      from '../../assets/image/home/lendbalance.png';
 import Img_BorrowBalance    from '../../assets/image/home/borrowbalance.png';
@@ -17,6 +15,7 @@ import Img_Paxos            from '../../assets/image/home/paxos.png';
 import Img_Binance          from '../../assets/image/home/binanceusd.png';
 import Img_HUSD             from '../../assets/image/home/husd.png';
 
+import { updateBorrowAsset } from '../../store/reducers/asset';
 
 import './Home.scss';
 
@@ -45,7 +44,16 @@ class Home extends Component {
       ],
     }
   }
-  renderHome() {
+
+  goBorrowPage(asset) {
+    this.props.updateBorrowAsset({
+      b_asset_name: asset.name,
+      b_apm: asset.apm
+    })
+    this.props.history.push('/borrow');
+  }
+
+  render() {
     return (
       <div className="Home">
         <div className="back"></div>
@@ -142,7 +150,9 @@ class Home extends Component {
             <div className="table-body">
               {this.state.assets_borrow.map(asset => {
                 return (
-                  <div className={asset.name === "HUSD"?"table-row noborder":"table-row"} key={asset.name}>
+                  <div className={asset.name === "HUSD"?"table-row noborder":"table-row"} key={asset.name}
+                    onClick={() => this.goBorrowPage(asset)}
+                  >
                     <div className="cell w30">
                       <img src={asset.imgUrl} alt=""/>
                       <div className="text">{asset.name}</div>
@@ -165,31 +175,13 @@ class Home extends Component {
       </div>
     );
   }
-
-  render() {
-    if (this.state.page === 0)
-      return (
-        <div>
-          {this.renderHome()}
-        </div>
-      )
-    if (this.state.page === 1)     
-      return (
-        <div className="Home">
-          <div className="back"/>
-          <div className="gradient-back">
-            <img src={Img_Background} className="img_bg" alt=""/>
-          </div>
-          <Borrow/>
-        </div>
-      )
-  }
 }
 
 const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
+  updateBorrowAsset: updateBorrowAsset
 };
 
 export default compose(connect(mapStateToProps, mapDispatchToProps))(Home);
