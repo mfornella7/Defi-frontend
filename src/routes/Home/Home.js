@@ -48,6 +48,7 @@ class Home extends Component {
   renderHome() {
     return (
       <div className="Home">
+        <div className="back"></div>
         <div className="gradient-back">
           <img src={Img_Background} className="img_bg" alt=""/>
         </div>
