@@ -1,36 +1,34 @@
 @import '../../css/constants.scss'; 
 @import '../../css/responsive.scss'; 
-$bg-color: #34495e;
-$default-size: 100px;
-$label-font-size: $default-size / 4;
-$label-font-size-redo: $default-size * 4;
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
 @mixin size($width, $height) {
-    height: $height;
-    width: $width;
+  height: $height;
+  width: $width;
 }
 
 @mixin draw-progress($progress, $color) {
-    .pie {
-      .half-circle {
-        border-color: $color;
+  .pie {
+    .half-circle {
+      border-color: $color;
+    }
+
+    .left-side {
+      transform: rotate($progress * 3.6deg);
+    }
+
+    @if $progress <= 50 {
+      .right-side {
+        display: none;
       }
-  
-      .left-side {
-        transform: rotate($progress * 3.6deg);
-      }
-  
-      @if $progress <= 50 {
-        .right-side {
-          display: none;
-        }
-      } @else {
-        clip: rect(auto, auto, auto, auto);
-  
-        .right-side {
-          transform: rotate(180deg);
-        }
+    } @else {
+      clip: rect(auto, auto, auto, auto);
+
+      .right-side {
+        transform: rotate(180deg);
       }
     }
+  }
 }
   
 .Home {
@@ -42,7 +40,7 @@ $label-font-size-redo: $default-size * 4;
             width: 100%;
             height: 300px;
             position: 100%;
-            background-image: linear-gradient(to right, $color_gra_start , $color_gra_end);
+            background-image: linear-gradient(140deg, $color_gra_start , $color_gra_end);
             z-index: -1;
             .img_bg {
                 width: 1300px;
@@ -74,7 +72,7 @@ $label-font-size-redo: $default-size * 4;
                         margin-bottom: 10px;
                     }
                     .description {
-                        font-size: 12px;
+                        font-size: 14px;
                     }
                     .price-lg {
                         font-size: 36px;
@@ -89,76 +87,163 @@ $label-font-size-redo: $default-size * 4;
             }
             .balance-circle {
                 margin-left: 50px;
-                .pie-wrapper {
-                    @include size($default-size, $default-size);
-                    float: left;
-                    margin: 15px;
-                    position: relative;
-                    
-                    &:nth-child(3n + 1) {
-                      clear: both;
+                font-size: 10em;
+                .big-circle {
+                    width: 156px;
+                    height: 156px;
+                    border: 1px solid $color_grey_light;
+                    border-radius: 100%;
+                    .inner-circle {
+                        margin: 5px;
+                        width: 144px;
+                        height: 144px;
+                        border: 1px solid $color_grey_light;
+                        border-radius: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        .limit {
+                            margin-top: auto;
+                            color: $color_grey_light;
+                            font-size: 18px;
+                        }
+                        .p-value {
+                            color: $color_white;
+                            font-size: 16px;
+                            font-family: 'Roboto-Bold';
+                            margin-top: 5px;
+                            margin-bottom: auto;
+                        }
                     }
-                  
-                    .pie {
-                      @include size(100%, 100%);
-                      clip: rect(0, $default-size, $default-size, $default-size / 2);
-                      left: 0;
-                      position: absolute;
-                      top: 0;
-                  
-                      .half-circle {
-                        @include size(100%, 100%);
-                        border: ($default-size / 10) solid #3498db;
-                        border-radius: 50%;
-                        clip: rect(0, $default-size / 2, $default-size, 0);
-                        left: 0;
+                    .pie-wrapper {
+                        @include size(166px, 166px);
                         position: absolute;
-                        top: 0;
-                      }
-                    }
-                  
-                    .label {
-                      background: $bg-color;
-                      border-radius: 50%;
-                      bottom: $label-font-size-redo / 10;
-                      color: #ecf0f1;
-                      cursor: default;
-                      display: block;
-                      font-size: $label-font-size;
-                      left: $label-font-size-redo / 10;
-                      line-height: $label-font-size-redo * .70;
-                      position: absolute;
-                      right: $label-font-size-redo / 10;
-                      text-align: center;
-                      top: $label-font-size-redo / 10;
-                  
-                      .smaller {
-                        color: #bdc3c7;
-                        font-size: .45em;
-                        padding-bottom: 20px;
-                        vertical-align: super;
-                      }
-                    }
-                  
-                    .shadow {
-                      @include size(100%, 100%);
-                      border: $default-size / 10 solid #bdc3c7;
-                      border-radius: 50%;
-                    }
-                    
-                    &.style-2 {
-                        .label {
-                        background: none;
-                        color: #7f8c8d;
-
-                        .smaller {
-                            color: #bdc3c7;
+                        margin-left: 6px;
+                        margin-top: -10px;
+                        .pie {
+                          @include size(166px, 166px);
+                          clip: rect(0, 166, 166, 84);
+                          left: 0;
+                          position: absolute;
+                          top: 0;
+                      
+                          .half-circle {
+                            @include size(160px, 160px);
+                            border: 12px solid #3498db;
+                            border-radius: 60%;
+                            clip: rect(0, 0.5em, 1em, 0);
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                          }
                         }
+                        &.progress-45 {
+                          @include draw-progress(75, $color_red);
                         }
                     }
-                    
-                    &.progress-45 {
-                        @include draw-progress(45, #1abc9c);
+                }
+            }
+        }
+        .details-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            min-width: 1200px;
+            margin: 0 auto;
+            margin-top: 40px;
+            @media screen and (max-width: 1240px) {
+                margin: 40px 20px 0 20px;
+                min-width: 100px;
+            }
+            .detail-block {
+                width: calc(50% - 20px);
+                display: flex;
+                flex-direction: column;
+                .header {
+                    padding: 20px 0;
+                    background-color: $color_background;
+                    border-bottom: 1px solid $color_back_light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    img {
+                        width: 32px;
+                        height: 36px;
+                    }
+                    .lend-text, .borrow-text {
+                        color: $color_blue;
+                        font-family: 'Roboto-Bold';
+                        font-size: 24px;
+                        margin-left: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                    .borrow-text {
+                        color: $color_green;
+                    }
+                }
+                .table-header {
+                    padding: 10px 15px;
+                    background-color: $color_background;
+                    display: flex;
+                    flex-direction: row;
+                    .cell {
+                        color: $color_dark_text;
+                        font-size: 12px;
+                        &.w30 {
+                            width: 30%;
+                        }
+                        &.w20 {
+                            width: 20%;
+                        }
+                    }
+                }
+                .table-body {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: $color_back_light;
+                    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+                    .table-row {
+                        padding: 10px 15px;
+                        display: flex;
+                        flex-direction: row;
+                        border-bottom: 2px solid $color_grey;
+                        cursor: pointer;
+                        &.noborder {
+                            border-bottom: none;
+                        }
+                        &:hover {
+                            background-color: $color_hover;
+                            border-bottom: 2px solid $color_hover;
+                            box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+                        }
+                        .cell {
+                            display: flex;
+                            flex-direction: row;
+                            img {
+                                margin-right: 10px;
+                                width: 32px;
+                                height: 32px;
+                            }
+                            .text {
+                                color: $color_white;
+                                font-size: 14px;
+                                margin: auto 0;
+                                &.green {
+                                    color: $color_green;
+                                }
+                                &.grey {
+                                    color: $color_light_text;
+                                }
+                            }
+                            &.w30 {
+                                width: 30%;
+                            }
+                            &.w20 {
+                                width: 20%;
+                            }
+                        }
                     }
                 }
             }
@@ -167,4 +252,11 @@ $label-font-size-redo: $default-size * 4;
     @include responsive(mobile) {
         display: none;
     }
+}
+
+// -- selectors
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
