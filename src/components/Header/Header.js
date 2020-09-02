@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { withRouter } from 'react-router-dom'
+import { connect }          from 'react-redux';
+import { compose }          from 'redux';
+import { withRouter }       from 'react-router-dom'
+
+import Img_Logo         from '../../assets/image/home/logo.png';
+import Img_Setting      from '../../assets/image/home/configuration.png';
+import Img_User         from '../../assets/image/home/user.png';
+
 import './Header.scss';
 
 class Header extends Component {
@@ -14,6 +19,21 @@ class Header extends Component {
     render() {
         return (
             <div className="Header">
+                <div/>
+                <div className="tabs">
+                    <div className="tab active">
+                        <img src={Img_Logo} alt=""/>
+                        <div className="text">Dashboard</div>
+                    </div>
+                    <div className="tab">
+                        <img src={Img_Logo} alt=""/>
+                        <div className="text">Assets</div>
+                    </div>
+                </div>
+                <div className="settings">
+                    <img className="img-setting" src={Img_Setting} alt=""/>
+                    <img className="img-user" src={Img_User} alt=""/>
+                </div>
             </div>
         )
     }

@@ -9,10 +9,10 @@ const Routes = () => {
               exact
               path="/"
               render={() => {
-                return <Redirect to="/home"/>
+                return <Redirect to="/defi"/>
               }}
           />
-          <Route path="/home" component={Home}/>
+          <Route path="/defi" component={Home}/>
           <Route render={() => <Redirect to="/"/>}/>
       </Switch>
   );
