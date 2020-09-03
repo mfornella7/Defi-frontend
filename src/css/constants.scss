@@ -4,6 +4,7 @@ $color_background:  #0b0d0e;
 $color_gra_start:   #2258a5;
 $color_gra_end:     #00a7ac;
 $color_red:         #e62d6e;
+$color_red_border:  #a81f28;
 $color_blue:        #009fe3;
 $color_green:       #009640;
 $color_dark_text:   #706f6f;
@@ -15,3 +16,47 @@ $color_yellow:      #fff002;
 $color_grey_light:  #dadada;
 $color_hover:       #232527;
 $color_orange:      #f3921f;
+$color_green_light: #009887;
+
+
+.back {
+    position: absolute;
+    background-color: $color_background;
+    width: 100%;
+    height: 50px;
+    z-index: -1;
+}
+.gradient-back {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    position: 100%;
+    background-image: linear-gradient(140deg, $color_gra_start , $color_gra_end);
+    z-index: -1;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    .img_bg {
+        width: 1300px;
+        height: 300px;
+        margin-left: -400px;
+    }
+}
+.back-button {
+    width: 46px;
+    height: 46px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 100%;
+    margin-left: 30px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    i {
+        color: $color_white;
+        font-size: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}

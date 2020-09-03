@@ -27,6 +27,10 @@ class Borrow extends Component {
         };
     }
 
+    goBorrowed() {
+        this.props.history.push('/borrowed');
+    }
+
     renderAsset() {
         let asset_image;
         switch (this.props.assetName) {
@@ -110,7 +114,9 @@ class Borrow extends Component {
                     </div>
                 </div>
                 <div className="btc_text">1.00000000 BTC</div>
-                <img src={Img_QR} className="img-QR" alt=""/>
+                <div className="img-QR" onClick={() => this.goBorrowed()}>
+                    <img src={Img_QR}  alt=""/>
+                </div>
                 <div className="address-row">
                     <div className="address">1M5vkVXeaEbyTdry2HnXWFnybGeLYrvSp1</div>
                     <i className="fa fa-clone" aria-hidden="true"></i>
