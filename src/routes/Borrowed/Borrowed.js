@@ -13,6 +13,8 @@ import Img_Binance          from '../../assets/image/home/binanceusd.png';
 import Img_HUSD             from '../../assets/image/home/husd.png';
 import Img_CoinChange       from '../../assets/image/borrowed/coinchange.png';
 
+import { updateWithdraw }   from '../../store/reducers/asset';
+
 
 import './Borrowed.scss';
 
@@ -75,7 +77,9 @@ class Borrowed extends Component {
                         </div>
                         <div className="buttons">                            
                             <div className="borrow-button" onClick={() => { this.props.history.push('/borrow')}}>BORROW</div>
-                            <div className="withdraw-button" onClick={() => { this.props.history.push('/withdraw')}}>WITHDRAW</div>
+                            <div className="withdraw-button" onClick={() => { 
+                                this.props.updateWithdraw({withdraw: 'borrow'})
+                                this.props.history.push('/withdraw')}}>WITHDRAW</div>
                         </div>
                     </div>
                     <div className="apm-block">
@@ -169,6 +173,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
+    updateWithdraw: updateWithdraw
 };
 
 Borrowed.defaultProps = {

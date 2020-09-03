@@ -4,7 +4,6 @@ import { compose }          from 'redux';
 import { withRouter }       from 'react-router-dom'
 
 import Img_Background       from '../../assets/image/home/bg.png';
-import Img_BorrowBalance    from '../../assets/image/home/borrowbalance.png';
 import Img_Tether           from '../../assets/image/home/tether.png';
 import Img_USDCoin          from '../../assets/image/home/usdcoin.png';
 import Img_Dai              from '../../assets/image/home/dai.png';
@@ -57,7 +56,6 @@ class Withdraw extends Component {
                 <div className="back-button" onClick={() => this.goBack()}>
                     <i className="fa fa-home" aria-hidden="true"></i>
                 </div>
-                <img src={Img_BorrowBalance} className="img-borrow" alt=""/>
                 <div className="borrow-text">Withdraw {this.props.assetName}</div>
                 <div className="select-amount">Select the amount</div>
                 <div className="block-header">
@@ -68,12 +66,20 @@ class Withdraw extends Component {
                 <div className="detail-block">
                     <div className="rate">1 BTC - 11.50000000</div>
                     <div className="group">send</div>
-                    <div className="btc-row">
-                        <img src={Img_BTC} alt=""/>
-                        <div className="btc-text">BTC</div>
-                        <i className="fa fa-caret-down" aria-hidden="true"></i>
-                        <div className="price">1.00000000</div>
-                    </div>
+                    {this.props.withdraw === 'borrow' ?
+                        <div className="btc-row">
+                            <img src={Img_BTC} alt=""/>
+                            <div className="btc-text">BTC</div>
+                            <i className="fa fa-caret-down" aria-hidden="true"></i>
+                            <div className="price">1.00000000</div>
+                        </div>:
+                        <div className="btc-row">
+                            {this.renderAsset()}
+                            <div className="btc-text">USDT</div>
+                            <i className="fa fa-caret-down" aria-hidden="true"></i>
+                            <div className="price">11.50000000</div>
+                        </div>
+                    }
                     <div className="textwithline">
                         <div className="border"/>
                         <div className="mid-text">
@@ -82,12 +88,21 @@ class Withdraw extends Component {
                         <div className="border"/>
                     </div>
                     <div className="group">converted amount</div>
-                    <div className="btc-row">
-                        {this.renderAsset()}
-                        <div className="btc-text">USDT</div>
-                        <i className="fa fa-caret-down" aria-hidden="true"></i>
-                        <div className="price">11.50000000</div>
-                    </div>
+                    
+                    {this.props.withdraw !== 'borrow' ?
+                        <div className="btc-row">
+                            <img src={Img_BTC} alt=""/>
+                            <div className="btc-text">BTC</div>
+                            <i className="fa fa-caret-down" aria-hidden="true"></i>
+                            <div className="price">1.00000000</div>
+                        </div>:
+                        <div className="btc-row">
+                            {this.renderAsset()}
+                            <div className="btc-text">USDT</div>
+                            <i className="fa fa-caret-down" aria-hidden="true"></i>
+                            <div className="price">11.50000000</div>
+                        </div>
+                    }
                     <div className="all-but">All</div>
                     <div className="detail">
                         <div className="text">Network Fee</div>
@@ -115,7 +130,8 @@ class Withdraw extends Component {
 
 const mapStateToProps = (state) => ({
     assetName: state.asset.b_asset_name,
-    apm: state.asset.b_apm
+    apm: state.asset.b_apm,
+    withdraw: state.asset.withdraw,
 });
 
 const mapDispatchToProps = {

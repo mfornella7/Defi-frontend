@@ -1,9 +1,11 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home       from './Home';
+import Lend       from './Lend';
 import Borrow     from './Borrow';
 import Borrowed   from './Borrowed';
 import Withdraw   from './Withdraw';
+import Interest   from './Interest';
 
 const Routes = () => {
   return (
@@ -16,6 +18,8 @@ const Routes = () => {
               }}
           />
           <Route path="/defi" component={Home}/>
+          <Route path="/lend" component={Lend}/>
+          <Route path="/interest" component={Interest}/>
           <Route path="/borrow" component={Borrow}/>
           <Route path="/borrowed" component={Borrowed}/>
           <Route path="/withdraw" component={Withdraw}/>

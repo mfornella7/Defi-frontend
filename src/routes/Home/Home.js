@@ -52,6 +52,13 @@ class Home extends Component {
     })
     this.props.history.push('/borrow');
   }
+  goLendPage(asset) {
+    this.props.updateBorrowAsset({
+      b_asset_name: asset.name,
+      b_apm: asset.apm
+    })
+    this.props.history.push('/lend');
+  }
 
   render() {
     return (
@@ -117,7 +124,9 @@ class Home extends Component {
             <div className="table-body">
               {this.state.assets_lend.map(asset => {
                 return (
-                  <div className={asset.name === "HUSD"?"table-row noborder":"table-row"} key={asset.name}>
+                  <div className={asset.name === "HUSD"?"table-row noborder":"table-row"} key={asset.name}
+                    onClick={() => this.goLendPage(asset)}
+                  >
                     <div className="cell w30">
                       <img src={asset.imgUrl} alt=""/>
                       <div className="text">{asset.name}</div>
