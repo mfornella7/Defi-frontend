@@ -83,11 +83,18 @@
                 width: 100%;
                 margin-bottom: 50px;
             }
+            .mobile-back {
+                @include responsive(desktop, laptop) {
+                    display: none;
+                }
+                margin-left: -20px;
+            }
             .balance-block {
                 display: flex;
                 flex-direction: row;
                 @include responsive(mobile) {
                     margin: 0 auto;
+                    margin-top: 30px;
                 }
                 .balance-detail {
                     display: flex;

@@ -123,6 +123,9 @@ class Home extends Component {
           </div>
           </div>
           <div className="half-block">
+            <div className="gradient-back mobile-back">
+              <img src={Img_Background} className="img_bg" alt=""/>
+            </div>
             <div className="balance-block">
                 <div className="balance-detail">
                   <img src={Img_BorrowBalance} alt = ""/>
