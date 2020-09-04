@@ -6,6 +6,8 @@ import Borrow     from './Borrow';
 import Borrowed   from './Borrowed';
 import Withdraw   from './Withdraw';
 import Interest   from './Interest';
+import Market     from './Market';
+import Wallet     from './Wallet';
 
 const Routes = () => {
   return (
@@ -20,6 +22,8 @@ const Routes = () => {
           <Route path="/defi" component={Home}/>
           <Route path="/lend" component={Lend}/>
           <Route path="/interest" component={Interest}/>
+          <Route path="/market" component={Market}/>
+          <Route path="/wallet" component={Wallet}/>
           <Route path="/borrow" component={Borrow}/>
           <Route path="/borrowed" component={Borrowed}/>
           <Route path="/withdraw" component={Withdraw}/>

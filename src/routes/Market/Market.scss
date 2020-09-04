@@ -1,0 +1,191 @@
+@import '../../css/constants.scss'; 
+@import '../../css/responsive.scss'; 
+
+.Market {
+    @include responsive(desktop, laptop) {
+        display: flex;
+        flex-direction: column;
+        .market-text {
+            color: $color_white;
+            font-size: 40px;
+            font-family: 'Roboto-Bold';
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        .sub-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: $color_grey_light;
+        }
+        .market-container {
+            display: flex;
+            flex-direction: column;
+            min-width: 1000px;
+            margin: 0 auto;
+            @media screen and (max-width: 1040px) {
+                margin: 0 20px;
+                min-width: 100px;
+            }
+            .supply-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                .supply-block {
+                    width: calc(50% - 20px);
+                    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+                    .header {
+                        padding: 20px 30px;
+                        background-color: $color_background;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        .supply-text {
+                            color: $color_white;
+                            font-family: 'Roboto-Bold';
+                            margin: auto 0;
+                        }
+                        .price {
+                            display: flex;
+                            flex-direction: row;
+                            .total {
+                                color: $color_white;
+                                font-family: 'Roboto-Bold';
+                                font-size: 22px;
+                            }
+                            .discount {
+                                color: $color_red;
+                                font-family: 'Roboto-Bold';
+                                margin: auto 0;
+                                padding-left: 20px;
+                            }
+                        }
+                    }
+                    .body-block {
+                        padding: 15px 20px;
+                        background-color: $color_back_light;
+                        .text-row {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            padding: 10px 0;
+                            .grey-text {
+                                color: $color_light_text;
+                                font-size: 12px;
+                            }
+                            .green-text {
+                                color: $color_green;
+                                font-size: 12px;
+                                font-family: 'Roboto-Bold';
+                            }
+                            .white-text {
+                                color: $color_white;
+                                font-size: 18px;
+                                font-family: 'Roboto-Bold';
+                            }
+                        }
+                        .progress {
+                            width: 100%;
+                            height: 3px;
+                            border-radius: 3px;
+                            background-color: $color_border;
+                            margin-bottom: 10px;
+                            .fill {
+                                background-color: $color_green;
+                                height: 3px;
+                            }
+                        }
+                        .separator {
+                            width: 100%;
+                            background-color: $color_light_text;
+                            height: 1px;
+                            margin: 30px 0 20px 0;
+                        }
+                    }
+                }
+            }
+            .stock-view {
+                margin-top: 30px;
+                box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+                margin-bottom: 50px;
+                .header {
+                    padding: 15px 30px;
+                    background-color: $color_background;
+                    .text {
+                        color: $color_white;
+                        font-family: 'Roboto-Bold';
+                    }
+                }
+                .header-row {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding: 10px 30px;
+                    background-color: $color_back_light;
+                    .cell {
+                        color: $color_light_text;
+                        font-size: 12px;
+                        &.w20 {
+                            width: 23%;
+                        }
+                        &.w10 {
+                            width: 8%;
+                        }
+                    }
+                }
+                .body-row {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding: 10px 30px;
+                    background-color: $color_back_light;
+                    border-top: 1px solid $color_border;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    &:hover {
+                        background-color: $color_hover;
+                        box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+                        transition: 0.2s;
+                    }
+                    .cell {
+                        display: flex;
+                        flex-direction: row;
+                        &.w20 {
+                            width: 23%;
+                        }
+                        &.w10 {
+                            width: 8%;
+                        }
+                        img {
+                            width: 32px;
+                            height: 32px;
+                            margin-right: 15px;
+                        }
+                        .text {
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: 8px;
+                            &.last {
+                                margin-left: auto;
+                            }
+                            .white {
+                                color: $color_white;
+                                font-size: 12px;
+                            }
+                            .red {
+                                color: $color_red;
+                                font-size: 12px;
+                                margin-top: 2px;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include responsive(mobile) {
+        display: none;
+    }
+}

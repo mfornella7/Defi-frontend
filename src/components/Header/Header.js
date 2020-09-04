@@ -31,8 +31,10 @@ class Header extends Component {
                     </div>
                 </div>
                 <div className="settings">
-                    <img className="img-setting" src={Img_Setting} alt=""/>
-                    <img className="img-user" src={Img_User} alt=""/>
+                    <img className="img-setting" src={Img_Setting} alt="" onClick={() => {
+                        this.props.history.push('/market');}}/>
+                    <img className="img-user" src={Img_User} alt="" onClick={() => {
+                        this.props.history.push('/wallet');}}/>
                 </div>
             </div>
         )

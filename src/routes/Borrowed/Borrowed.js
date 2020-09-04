@@ -61,6 +61,19 @@ class Borrowed extends Component {
                 <div className="back-button" onClick={() => this.goBack()}>
                     <i className="fa fa-home" aria-hidden="true"></i>
                 </div>
+                <div className="notification">
+                    <div className="left">
+                        <div className="top">
+                            {this.renderAsset()}
+                            <div className="white-text">Confirmed</div>
+                            <div className="green-text">122.0000300 USDT</div>
+                        </div>
+                        <div className="bottom">See {this.props.assetName} balance</div>
+                    </div>
+                    <div className="right">
+                        <i className="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                </div>
                 <div className="borrowed-text">Total Funds Borrowed</div>
                 <div className="borrowed-price">
                     <div className="price">122.00000300</div>
