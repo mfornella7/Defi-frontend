@@ -68,7 +68,7 @@ class Interest extends Component {
                 <div className="back-button" onClick={() => this.goBack()}>
                     <i className="fa fa-home" aria-hidden="true"></i>
                 </div>
-                <div className="notification">
+                {/* <div className="notification">
                     <div className="left">
                         <div className="top">
                             {this.renderAsset()}
@@ -80,9 +80,10 @@ class Interest extends Component {
                     <div className="right">
                         <i className="fa fa-times" aria-hidden="true"></i>
                     </div>
-                </div>
+                </div> */}
                 <div className="interest-text">Total Funds Earning Interest</div>
                 <div className="interest-price">
+                    <div className="usdt-mobile">USDT</div>
                     <div className="price">122.00000300</div>
                     <div className="usdt">USDT</div>
                 </div>
@@ -110,6 +111,14 @@ class Interest extends Component {
                                 this.props.history.push('/lend')}}>DEPOSIT</div>
                         </div>
                     </div>
+                    <div className="apm-block mobile">
+                        <div className="usdt-apm">USDT APM</div>
+                        <div className="apm">                            
+                            <div className="value">{this.props.apm}</div>
+                            <div className="percent">%</div>
+                        </div>
+                        <div className="variable-apm">Variable APM</div>
+                    </div>
                     <div className="gas-block">
                         <div className="gas-text">GAINS PROJECTION</div>
                         <div className="month-button">
@@ -126,8 +135,8 @@ class Interest extends Component {
                 <div className="table-header">
                     <div className="cell w15">Asset</div>
                     <div className="cell w15">Date</div>
-                    <div className="cell w40">Transaction ID</div>
-                    <div className="cell w15">Amount</div>
+                    <div className="cell w40 desktop">Transaction ID</div>
+                    <div className="cell w15 desktop">Amount</div>
                     <div className="cell w15">Status</div>
                 </div>
                 {this.state.history.map(row => {
@@ -141,10 +150,10 @@ class Interest extends Component {
                                 <div className="cell w15">
                                     <div className="text">{row.date}</div>
                                 </div>
-                                <div className="cell w40">
+                                <div className="cell w40 desktop">
                                     <div className="text tid">{row.t_id}</div>
                                 </div>
-                                <div className="cell w15">
+                                <div className="cell w15 desktop">
                                     <div className="text amount">{row.amount}</div>
                                 </div>
                                 <div className="cell w15">
@@ -160,6 +169,13 @@ class Interest extends Component {
                             </div>
                             {this.state.status[row.id]?
                                 <div className="row-detail">
+                                    <div className="item mobile">
+                                        <div className="line"/>
+                                        <div className="detail">
+                                            <div className="dis">Amount</div>
+                                            <div className="amount">{row.amount}</div>
+                                        </div>
+                                    </div>
                                     <div className="item">
                                         <div className="line"/>
                                         <div className="detail">
@@ -172,6 +188,13 @@ class Interest extends Component {
                                         <div className="detail">
                                             <div className="dis">Fee</div>
                                             <div className="address">0.001812323 ETH</div>
+                                        </div>
+                                    </div>
+                                    <div className="item mobile">
+                                        <div className="line"/>
+                                        <div className="detail">
+                                            <div className="dis">Transaction ID</div>
+                                            <div className="id">{row.t_id.slice(0, 30) + '...'}</div>
                                         </div>
                                     </div>
                                 </div>:

@@ -2,55 +2,65 @@
 @import '../../css/responsive.scss'; 
 
 .Header {
-    @include responsive(desktop, laptop) {
-        background-color: $color_background;
+    background-color: $color_background;
+    display: flex;
+    flex-direction: row;
+    padding: 0 40px;
+    justify-content: space-between;
+    @include responsive(mobile) {
+        padding: 0 10px;
+    }
+    .menu {
+        width: 28px;
+        height: 24px;
+        margin: auto 0;
+        cursor: pointer;
+    }
+    .tabs {
         display: flex;
         flex-direction: row;
-        padding: 0 40px;
-        justify-content: space-between;
-        .tabs {
+        .tab {
             display: flex;
             flex-direction: row;
-            .tab {
-                display: flex;
-                flex-direction: row;
-                padding: 15px 5px;
-                margin-right: 20px;
-                color: $color_grey;
-                cursor: pointer;
-                img {
-                    width: 24px;
-                    height: 24px;
-                }
-                .text {
-                    font-family: 'Roboto-Bold';
-                    margin: auto 0 auto 10px;
-                }
-                &.active {
-                    color: $color_white;
-                    border-bottom: 2px solid $color_yellow;
-                }
-            }
-        }
-        .settings {
-            display: flex;
-            flex-direction: row;
-            .img-setting {
-                widows: 24px;
+            padding: 15px 5px;
+            margin-right: 20px;
+            color: $color_grey;
+            cursor: pointer;
+            img {
+                width: 24px;
                 height: 24px;
-                margin: auto 0;
-                padding-right: 20px;
-                cursor: pointer;
             }
-            .img-user {
-                widows: 28px;
-                height: 28px;
-                margin: auto 0;
-                cursor: pointer;
+            .text {
+                font-family: 'Roboto-Bold';
+                margin: auto 0 auto 10px;
+            }
+            &.active {
+                color: $color_white;
+                border-bottom: 2px solid $color_yellow;
             }
         }
     }
-    @include responsive(mobile) {
-        display: none;
+    .settings {
+        display: flex;
+        flex-direction: row;
+        .img-setting {
+            widows: 24px;
+            height: 24px;
+            margin: auto 0;
+            padding-right: 20px;
+            cursor: pointer;
+            @include responsive(mobile) {
+                display: none;
+            }
+        }
+        .img-user {
+            widows: 28px;
+            height: 28px;
+            margin: auto 0;
+            cursor: pointer;
+            @include responsive(mobile) {
+                display: none;
+            }
+        }
     }
 }

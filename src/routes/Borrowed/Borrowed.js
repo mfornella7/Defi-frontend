@@ -76,6 +76,7 @@ class Borrowed extends Component {
                 </div>
                 <div className="borrowed-text">Total Funds Borrowed</div>
                 <div className="borrowed-price">
+                    <div className="usdt-mobile">USDT</div>
                     <div className="price">122.00000300</div>
                     <div className="usdt">USDT</div>
                 </div>
@@ -83,11 +84,17 @@ class Borrowed extends Component {
                     <div className="option-block">
                         <div className="top-back"/>
                         {this.renderAsset()}
-                        <div className="balance">Balance</div>
-                        <div className="balance-price">                            
-                            <div className="value">0.000003000</div>
-                            <div className="usdt">USDT</div>
-                        </div>
+                        <div className="balance">Balance</div>     
+                        {window.innerWidth < 1080?
+                            <div className="balance-price">
+                                <div className="usdt">USDT</div>
+                                <div className="value">0.000003000</div>
+                            </div>:
+                            <div className="balance-price">
+                                <div className="value">0.000003000</div>
+                                <div className="usdt">USDT</div>
+                            </div>
+                        }
                         <div className="buttons">                            
                             <div className="borrow-button" onClick={() => { this.props.history.push('/borrow')}}>BORROW</div>
                             <div className="withdraw-button" onClick={() => { 
@@ -111,7 +118,8 @@ class Borrowed extends Component {
                     <div className="title">Open Contracts</div>
                 </div>
                 <div className="table-header">
-                    <div className="cell w10">Coin Change</div>
+                    {window.innerWidth < 1080?(null):
+                    <div className="cell w10">Coin Change</div>}
                     <div className="cell w10">Order Id</div>
                     <div className="cell w15">Open Date</div>
                     <div className="cell w15">Contract Time</div>
@@ -123,9 +131,10 @@ class Borrowed extends Component {
                     return (
                         <div className="table-row" key={row.id}>
                             <div className="row" >
+                                {window.innerWidth < 1080?(null):
                                 <div className="cell w10">
                                     <img src={Img_CoinChange} alt=""/>
-                                </div>
+                                </div>}
                                 <div className="cell w10">{row.orderId}</div>
                                 <div className="cell w15">{row.date}</div>
                                 <div className="cell w15">{row.time}</div>
@@ -148,7 +157,8 @@ class Borrowed extends Component {
                     <div className="title">Closed Contracts</div>
                 </div>
                 <div className="table-header">
-                    <div className="cell w10">Coin Change</div>
+                    {window.innerWidth < 1080?(null):
+                    <div className="cell w10">Coin Change</div>}
                     <div className="cell w10">Order Id</div>
                     <div className="cell w15">Open Date</div>
                     <div className="cell w15">Contract Time</div>
@@ -162,9 +172,10 @@ class Borrowed extends Component {
                         <div className="table-row" key={row.id}>
                             <div className={k === this.state.openContracts.length?
                                 "row completed last":"row completed"} >
+                                {window.innerWidth < 1080?(null):
                                 <div className="cell w10">
                                     <img src={Img_CoinChange} alt=""/>
-                                </div>
+                                </div>}
                                 <div className="cell w10">{row.orderId}</div>
                                 <div className="cell w15">{row.date}</div>
                                 <div className="cell w15">{row.time}</div>

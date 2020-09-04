@@ -32,46 +32,63 @@
 }
   
 .Home {
-    @include responsive(desktop, laptop) {
-        display: flex;
-        flex-direction: column;
-        .back {
-            position: absolute;
-            background-color: $color_background;
-            width: 100%;
-            height: 50px;
-            z-index: -1;
-        }
-        .gradient-back {
-            position: absolute;
-            width: 100%;
+    display: flex;
+    flex-direction: column;
+    .back {
+        position: absolute;
+        background-color: $color_background;
+        width: 100%;
+        height: 50px;
+        z-index: -1;
+    }
+    .gradient-back {
+        position: absolute;
+        width: 100%;
+        height: 300px;
+        position: 100%;
+        background-image: linear-gradient(140deg, $color_gra_start , $color_gra_end);
+        z-index: -1;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        .img_bg {
+            width: 1300px;
             height: 300px;
-            position: 100%;
-            background-image: linear-gradient(140deg, $color_gra_start , $color_gra_end);
-            z-index: -1;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-            .img_bg {
-                width: 1300px;
-                height: 300px;
-                margin-left: -400px;
+            margin-left: -400px;
+            @include responsive(mobile) {
+                width: 100%;
+                margin-left: 0;
+                object-fit: cover;
             }
         }
-        .balances-container {
+    }
+    .balances-container {
+        display: flex;
+        flex-direction: row;
+        @include responsive(mobile) {
+            flex-direction: column;
+        }
+        min-width: 1200px;
+        margin: 0 auto;
+        margin-top: 40px;
+        justify-content: space-between;
+        @media screen and (max-width: 1240px) {
+            margin: 40px 20px 0 20px;
+            min-width: 100px;
+        }
+        .half-block {
             display: flex;
-            flex-direction: row;
-            min-width: 1200px;
-            margin: 0 auto;
-            margin-top: 40px;
-            justify-content: space-between;
-            @media screen and (max-width: 1240px) {
-                margin: 40px 20px 0 20px;
-                min-width: 100px;
+            flex-direction: column;
+            width: calc(50% - 20px);
+            @include responsive(mobile) {
+                width: 100%;
+                margin-bottom: 50px;
             }
             .balance-block {
                 display: flex;
                 flex-direction: row;
-                width: calc(50% - 20px);
+                @include responsive(mobile) {
+                    margin: 0 auto;
+                }
                 .balance-detail {
                     display: flex;
                     flex-direction: column;
@@ -93,10 +110,24 @@
                         font-size: 28px;
                         font-family: 'Roboto-Bold';
                     }
+                    @include responsive(mobile) {
+                        .price-lg {
+                            font-size: 26px;
+                            margin-bottom: 20px;
+                            font-family: 'Roboto-Bold';
+                        }
+                        .price-sm {
+                            font-size: 18px;
+                            font-family: 'Roboto-Bold';
+                        }
+                    }
                 }
             }
             .balance-circle {
                 margin-left: 50px;
+                @include responsive(mobile) {
+                    margin-left: 20px;
+                }
                 font-size: 10em;
                 .big-circle {
                     width: 156px;
@@ -131,13 +162,13 @@
                         margin-left: 3px;
                         margin-top: -10px;
                         .pie {
-                          @include size(166px, 166px);
-                          clip: rect(0, 166, 166, 84);
-                          left: 0;
-                          position: absolute;
-                          top: 0;
-                      
-                          .half-circle {
+                            @include size(166px, 166px);
+                            clip: rect(0, 166, 166, 84);
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                        
+                            .half-circle {
                             @include size(160px, 160px);
                             border: 12px solid #3498db;
                             border-radius: 60%;
@@ -145,28 +176,16 @@
                             left: 0;
                             position: absolute;
                             top: 0;
-                          }
+                            }
                         }
                         &.progress-45 {
-                          @include draw-progress(75, $color_red);
+                            @include draw-progress(75, $color_red);
                         }
                     }
                 }
             }
-        }
-        .details-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            min-width: 1200px;
-            margin: 0 auto;
-            margin-top: 40px;
-            @media screen and (max-width: 1240px) {
-                margin: 40px 20px 0 20px;
-                min-width: 100px;
-            }
             .detail-block {
-                width: calc(50% - 20px);
+                margin-top: 30px;
                 display: flex;
                 flex-direction: column;
                 .header {
@@ -258,9 +277,6 @@
                 }
             }
         }
-    }
-    @include responsive(mobile) {
-        display: none;
     }
 }
 

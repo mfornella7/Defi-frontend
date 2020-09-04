@@ -2,183 +2,178 @@
 @import '../../css/responsive.scss'; 
 
 .Withdraw {
-    @include responsive(desktop, laptop) {
+    display: flex;
+    flex-direction: column;
+    .img-borrow {
+        width: 40px;
+        height: 46px;
+        margin: 0 auto;
+    }
+    .borrow-text {
+        color: $color_white;
+        font-size: 40px;
+        font-family: 'Roboto-Bold';
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    .select-amount {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $color_grey_light;
+    }
+    .block-header {
+        background-color: $color_background;
+        width: 280px;
+        padding: 10px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        img {
+            width: 44px;
+            height: 44px;
+        }
+        i {
+            color: $color_dark_text;
+        }
+    }
+    .detail-block {
         display: flex;
         flex-direction: column;
-        .img-borrow {
-            width: 40px;
-            height: 46px;
-            margin: 0 auto;
+        margin: 0 auto;
+        width: 280px;
+        padding: 20px 0;
+        background-color: $color_back_light;
+        box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+        .rate {
+            color: $color_light_text;
+            font-size: 12px;
+            text-align: right;
+            padding-right: 10px;
         }
-        .borrow-text {
-            color: $color_white;
-            font-size: 40px;
-            font-family: 'Roboto-Bold';
-            text-align: center;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-        .select-amount {
-            text-align: center;
-            margin-bottom: 20px;
-            color: $color_grey_light;
-        }
-        .block-header {
-            background-color: $color_background;
-            width: 280px;
+        .group {
+            color: $color_light_text;
+            font-size: 12px;
             padding: 10px;
+        }
+        .textwithline {
+            display: flex;
+            flex-direction: row;
+            margin: 0 10px;
+            .border {
+                flex-grow: 1;
+                position: relative;
+            }
+            .border::before {
+                content: '';
+                border-bottom: 1px solid $color_light_text;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                transform: translateY(-49%);
+            }
+            .mid-text {
+                padding: 0 10px;
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        .btc-row {
+            margin: 0px 10px 20px 10px;
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $color_white;
+            img {
+                width: 26px;
+                height: 26px;
+            }
+            .btc-text {
+                color: $color_white;
+                font-size: 18px;
+                font-family: 'Roboto-Bold';
+                margin: auto 0;
+                padding-left: 10px;
+            }
+            i {
+                margin: auto 0;
+                padding-left: 5px;
+                color: $color_white;
+            }
+            .price {
+                color: $color_white;
+                font-size: 22px;
+                font-family: 'Roboto-Medium';
+                margin-left: auto;
+            }
+        }
+        .all-but {
+            color: $color_light_text;
+            border: 1px solid $color_light_text;
+            font-size: 12px;
+            padding: 5px 20px;
+            border-radius: 20px;
+            text-align: center;
+            width: 80px;
             margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        .seperator {
+            margin: 10px;
+            background-color: $color_light_text;
+            height: 1px;
+        }
+        .detail {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            img {
-                width: 44px;
-                height: 44px;
-            }
-            i {
-                color: $color_dark_text;
+            margin: 0 20px 5px 10px;
+            .text {
+                color: $color_light_text;
+                font-size: 12px;
+                margin: auto 0;
+                &.bold {
+                    font-size: 14px;
+                }
             }
         }
-        .detail-block {
+        .paste-address {
             display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-            width: 280px;
-            padding: 20px 0;
-            background-color: $color_back_light;
-            box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
-            .rate {
-                color: $color_light_text;
+            flex-direction: row;
+            margin: 20px 10px;
+            justify-content: space-between;
+            padding: 5px 10px;
+            border: 1px solid $color_light_text;
+            border-radius: 30px;
+            img {
+                width: 20px;
+                height: 20px;
+            }
+            input {
+                font-family: 'Roboto-Bold';                
                 font-size: 12px;
-                text-align: right;
-                padding-right: 10px;
-            }
-            .group {
-                color: $color_light_text;
-                font-size: 12px;
-                padding: 10px;
-            }
-            .textwithline {
-                display: flex;
-                flex-direction: row;
-                margin: 0 10px;
-                .border {
-                    flex-grow: 1;
-                    position: relative;
-                }
-                .border::before {
-                    content: '';
-                    border-bottom: 1px solid $color_light_text;
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    transform: translateY(-49%);
-                }
-                .mid-text {
-                    padding: 0 10px;
-                    img {
-                        width: 30px;
-                        height: 30px;
-                    }
-                }
-            }
-            .btc-row {
-                margin: 0px 10px 20px 10px;
-                display: flex;
-                flex-direction: row;
-                padding-bottom: 10px;
-                border-bottom: 1px solid $color_white;
-                img {
-                    width: 26px;
-                    height: 26px;
-                }
-                .btc-text {
-                    color: $color_white;
-                    font-size: 18px;
-                    font-family: 'Roboto-Bold';
-                    margin: auto 0;
-                    padding-left: 10px;
-                }
-                i {
-                    margin: auto 0;
-                    padding-left: 5px;
-                    color: $color_white;
-                }
-                .price {
-                    color: $color_white;
-                    font-size: 22px;
-                    font-family: 'Roboto-Medium';
-                    margin-left: auto;
-                }
-            }
-            .all-but {
-                color: $color_light_text;
-                border: 1px solid $color_light_text;
-                font-size: 12px;
-                padding: 5px 20px;
-                border-radius: 20px;
-                text-align: center;
-                width: 80px;
-                margin: 0 auto;
-                margin-bottom: 20px;
-            }
-            .seperator {
-                margin: 10px;
-                background-color: $color_light_text;
-                height: 1px;
-            }
-            .detail {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                margin: 0 20px 5px 10px;
-                .text {
-                    color: $color_light_text;
-                    font-size: 12px;
-                    margin: auto 0;
-                    &.bold {
-                        font-size: 14px;
-                    }
-                }
-            }
-            .paste-address {
-                display: flex;
-                flex-direction: row;
-                margin: 20px 10px;
-                justify-content: space-between;
-                padding: 5px 10px;
-                border: 1px solid $color_light_text;
-                border-radius: 30px;
-                img {
-                    width: 20px;
-                    height: 20px;
-                }
-                input {
-                    font-family: 'Roboto-Bold';                
-                    font-size: 12px;
-                    line-height: 19px;
-                    background: none;
-                    border: none;
-                    color: $color_white;
-                    &:focus {
-                        outline: none;
-                    }
-                }
-            }
-            .withdraw-button {
-                background-image: linear-gradient(135deg, $color_gra_start , $color_gra_end);
-                margin: 0 10px;
-                width: calc(100% - 20px);
-                border-radius: 100px;
-                text-align: center;
-                padding: 10px;
-                cursor: pointer;
+                line-height: 19px;
+                background: none;
+                border: none;
                 color: $color_white;
-                font-family: 'Roboto-Bold';
+                &:focus {
+                    outline: none;
+                }
             }
         }
-    }
-    @include responsive(mobile) {
-        display: none;
+        .withdraw-button {
+            background-image: linear-gradient(135deg, $color_gra_start , $color_gra_end);
+            margin: 0 10px;
+            width: calc(100% - 20px);
+            border-radius: 100px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            color: $color_white;
+            font-family: 'Roboto-Bold';
+        }
     }
 }

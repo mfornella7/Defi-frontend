@@ -1,3 +1,4 @@
+@import '../../css/responsive.scss'; 
 $color_white:       #ffffff;
 $color_grey:        #3c3c3b;
 $color_background:  #0b0d0e;
@@ -39,6 +40,11 @@ $color_green_light: #009887;
         width: 1300px;
         height: 300px;
         margin-left: -400px;
+        @include responsive(mobile) {
+            width: 100%;
+            margin-left: 0;
+            object-fit: cover;
+        }
     }
 }
 .back-button {

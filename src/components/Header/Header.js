@@ -6,6 +6,7 @@ import { withRouter }       from 'react-router-dom'
 import Img_Logo         from '../../assets/image/home/logo.png';
 import Img_Setting      from '../../assets/image/home/configuration.png';
 import Img_User         from '../../assets/image/home/user.png';
+import Img_Menu         from '../../assets/image/menu.png';
 
 import './Header.scss';
 
@@ -16,10 +17,21 @@ class Header extends Component {
         };
     }
 
+    renderMobile() {
+        if (window.innerWidth < 1080) {
+            return <img className="menu" src={Img_Menu} alt="" onClick={() => {
+                this.props.history.push('/defi')
+            }}/>
+        }
+        return(
+            <div/>
+        )
+    }
+
     render() {
         return (
             <div className="Header">
-                <div/>
+                {this.renderMobile()}
                 <div className="tabs">
                     <div className="tab active">
                         <img src={Img_Logo} alt=""/>

@@ -2,248 +2,243 @@
 @import '../../css/responsive.scss'; 
 
 .Lend {
-    @include responsive(desktop, laptop) {
+    display: flex;
+    flex-direction: column;
+    .back-button {
+        width: 46px;
+        height: 46px;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 100%;
+        margin-left: 30px;
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
-        .back-button {
-            width: 46px;
-            height: 46px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 100%;
-            margin-left: 30px;
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            cursor: pointer;
-            i {
-                color: $color_white;
-                font-size: 18px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-        .img-borrow {
-            width: 40px;
-            height: 46px;
-            margin: 0 auto;
-        }
-        .borrow-text {
+        justify-content: center;
+        cursor: pointer;
+        i {
             color: $color_white;
-            font-size: 40px;
-            font-family: 'Roboto-Bold';
-            text-align: center;
-            margin: 15px 0;
-        }
-        .block-header {
-            background-color: $color_background;
-            width: 280px;
-            padding: 10px;
-            margin: 0 auto;
+            font-size: 18px;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
-            img {
-                width: 44px;
-                height: 44px;
-            }
-            i {
-                color: $color_dark_text;
-            }
+            justify-content: center;
         }
-        .block-body {
-            margin: 0 auto;
-            width: 280px;
-            padding: 50px 10px 50px 10px;
-            background-color: $color_back_light;
-            box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
-            .apm-text {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                .text {
-                    color: $color_white;
-                    font-size: 50px;
-                    line-height: 50px;
-                    text-align: center;
-                    font-weight: bold;
-                }
-                .percent {
-                    color: $color_white;
-                    font-size: 30px;
-                    text-align: center;
-                    font-weight: bold;
-                    margin-top: auto;
-                    margin-left: 10px;
-                }
-            }
-            .grey-text {
-                color: $color_light_text;
-                text-align: center;
-                font-size: 14px;
-                margin-top: 5px;
-                margin-bottom: 50px;
-            }
-            .borrow-button {
-                background-image: linear-gradient(135deg, $color_gra_start , $color_gra_end);
-                width: 200px;
-                border-radius: 100px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                padding: 10px;
-                margin: 0 auto;
-                cursor: pointer;
-                img {
-                    width: 20px;
-                }
-                .text {
-                    color: $color_white;
-                    margin-left: 10px;
-                }
-            }
+    }
+    .img-borrow {
+        width: 40px;
+        height: 46px;
+        margin: 0 auto;
+    }
+    .borrow-text {
+        color: $color_white;
+        font-size: 40px;
+        font-family: 'Roboto-Bold';
+        text-align: center;
+        margin: 15px 0;
+    }
+    .block-header {
+        background-color: $color_background;
+        width: 280px;
+        padding: 10px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        img {
+            width: 44px;
+            height: 44px;
         }
-        .detail-block {
+        i {
+            color: $color_dark_text;
+        }
+    }
+    .block-body {
+        margin: 0 auto;
+        width: 280px;
+        padding: 50px 10px 50px 10px;
+        background-color: $color_back_light;
+        box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+        .apm-text {
             display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-            width: 280px;
-            padding: 20px 0;
-            background-color: $color_back_light;
-            box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
-            .rate {
-                color: $color_light_text;
-                font-size: 12px;
-                text-align: right;
-                padding-right: 10px;
-            }
-            .group {
-                color: $color_light_text;
-                font-size: 12px;
-                padding: 10px;
-            }
-            .textwithline {
-                display: flex;
-                flex-direction: row;
-                margin: 0 10px;
-                .border {
-                    flex-grow: 1;
-                    position: relative;
-                }
-                .border::before {
-                    content: '';
-                    border-bottom: 1px solid $color_light_text;
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    transform: translateY(-49%);
-                }
-                .mid-text {
-                    padding: 0 10px;
-                    img {
-                        width: 30px;
-                        height: 30px;
-                    }
-                }
-            }
-            .btc-row {
-                margin: 0px 10px 20px 10px;
-                display: flex;
-                flex-direction: row;
-                padding: 10px;
-                border-bottom: 2px solid $color_white;
-                img {
-                    width: 26px;
-                    height: 26px;
-                }
-                .btc-text {
-                    color: $color_white;
-                    font-size: 18px;
-                    font-family: 'Roboto-Bold';
-                    margin: auto 0;
-                    padding-left: 10px;
-                }
-                i {
-                    margin: auto 0;
-                    padding-left: 5px;
-                    color: $color_white;
-                }
-                .price {
-                    color: $color_white;
-                    font-size: 22px;
-                    font-family: 'Roboto-Medium';
-                    margin-left: auto;
-                }
-            }
-            .get-row {
-                display: flex;
-                flex-direction: row;
-                padding: 10px 20px;
-                border-bottom: 1px solid $color_light_text;
-                .asset {
-                    display: flex;
-                    flex-direction: row;
-                    width: 54%;
-                    img {
-                        width: 24px;
-                        height: 24px;
-                    }
-                    .text {
-                        color: $color_white;
-                        margin: auto 0;
-                        padding-left: 10px;
-                        font-size: 14px;
-                    }
-                }
-                .detail {
-                    display: flex;
-                    flex-direction: row;
-                    .price {
-                        color: $color_white;
-                        margin: auto 0;
-                        font-size: 14px;
-                        &.green {
-                            margin-left: 10px;
-                            color: $color_green;
-                        }
-                    }
-                }
-            }
-            .btc_text {
+            flex-direction: row;
+            justify-content: center;
+            .text {
                 color: $color_white;
-                font-size: 24px;
+                font-size: 50px;
+                line-height: 50px;
                 text-align: center;
-                margin: 10px 0 10px 0;
+                font-weight: bold;
             }
-            .img-QR {
-                cursor: pointer;
-                img {
-                    width: 200px;
-                    height: 200px;
-                }
-                margin: 0 auto;
+            .percent {
+                color: $color_white;
+                font-size: 30px;
+                text-align: center;
+                font-weight: bold;
+                margin-top: auto;
+                margin-left: 10px;
             }
-            .address-row {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                margin-top: 20px;
-                margin-bottom: 10px;
-                .address {
-                    color: $color_white;
-                    font-size: 11px;
-                    margin: auto 0;
-                }
-                i {
-                    color: $color_orange;
-                    margin-left: 10px;
-                    font-size: 14px;
-                }
+        }
+        .grey-text {
+            color: $color_light_text;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-bottom: 50px;
+        }
+        .borrow-button {
+            background-image: linear-gradient(135deg, $color_gra_start , $color_gra_end);
+            width: 200px;
+            border-radius: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 10px;
+            margin: 0 auto;
+            cursor: pointer;
+            img {
+                width: 20px;
+            }
+            .text {
+                color: $color_white;
+                margin-left: 10px;
             }
         }
     }
-    @include responsive(mobile) {
-        display: none;
+    .detail-block {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 280px;
+        padding: 20px 0;
+        background-color: $color_back_light;
+        box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.5);
+        .rate {
+            color: $color_light_text;
+            font-size: 12px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        .group {
+            color: $color_light_text;
+            font-size: 12px;
+            padding: 10px;
+        }
+        .textwithline {
+            display: flex;
+            flex-direction: row;
+            margin: 0 10px;
+            .border {
+                flex-grow: 1;
+                position: relative;
+            }
+            .border::before {
+                content: '';
+                border-bottom: 1px solid $color_light_text;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                transform: translateY(-49%);
+            }
+            .mid-text {
+                padding: 0 10px;
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        .btc-row {
+            margin: 0px 10px 20px 10px;
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+            border-bottom: 2px solid $color_white;
+            img {
+                width: 26px;
+                height: 26px;
+            }
+            .btc-text {
+                color: $color_white;
+                font-size: 18px;
+                font-family: 'Roboto-Bold';
+                margin: auto 0;
+                padding-left: 10px;
+            }
+            i {
+                margin: auto 0;
+                padding-left: 5px;
+                color: $color_white;
+            }
+            .price {
+                color: $color_white;
+                font-size: 22px;
+                font-family: 'Roboto-Medium';
+                margin-left: auto;
+            }
+        }
+        .get-row {
+            display: flex;
+            flex-direction: row;
+            padding: 10px 20px;
+            border-bottom: 1px solid $color_light_text;
+            .asset {
+                display: flex;
+                flex-direction: row;
+                width: 54%;
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+                .text {
+                    color: $color_white;
+                    margin: auto 0;
+                    padding-left: 10px;
+                    font-size: 14px;
+                }
+            }
+            .detail {
+                display: flex;
+                flex-direction: row;
+                .price {
+                    color: $color_white;
+                    margin: auto 0;
+                    font-size: 14px;
+                    &.green {
+                        margin-left: 10px;
+                        color: $color_green;
+                    }
+                }
+            }
+        }
+        .btc_text {
+            color: $color_white;
+            font-size: 24px;
+            text-align: center;
+            margin: 10px 0 10px 0;
+        }
+        .img-QR {
+            cursor: pointer;
+            img {
+                width: 200px;
+                height: 200px;
+            }
+            margin: 0 auto;
+        }
+        .address-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            .address {
+                color: $color_white;
+                font-size: 11px;
+                margin: auto 0;
+            }
+            i {
+                color: $color_orange;
+                margin-left: 10px;
+                font-size: 14px;
+            }
+        }
     }
 }
