@@ -272,6 +272,9 @@
                                 &.grey {
                                     color: $color_light_text;
                                 }
+                                @include responsive(mobile) {
+                                    font-size: 10px;
+                                }
                             }
                             &.w30 {
                                 width: 30%;
