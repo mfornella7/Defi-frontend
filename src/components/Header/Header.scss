@@ -43,23 +43,577 @@
     .settings {
         display: flex;
         flex-direction: row;
-        .img-setting {
-            widows: 24px;
-            height: 24px;
+        i {
+            color: $color_light_text;
+            font-size: 24px;
             margin: auto 0;
-            padding-right: 20px;
             cursor: pointer;
-            @include responsive(mobile) {
-                display: none;
+        }
+    }
+    @include responsive(desktop, laptop) {
+        .panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 440px;
+            background: $color_white;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+            height: 100%;
+            .panel-header {
+                padding: 30px 50px;
+                background-color: $color_panel_back;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .title {
+                    display: flex;
+                    flex-direction: column;
+                    .text {
+                        color: $color_background;
+                        font-family: 'Roboto-Bold';
+                        font-size: 20px;
+                    }
+                    .bar {
+                        background-color: $color_red;
+                        width: 40px;
+                        border-radius: 10px;
+                        height: 10px;
+                        margin-top: 10px;
+                    }
+                }
+                i {
+                    color: $color_grey_light;
+                    cursor: pointer;
+                }
+            }
+            .panel-body {
+                display: flex;
+                flex-direction: column;
+                background-color: $color_white;
+                .ctrl-row {
+                    display: flex;
+                    flex-direction: row;
+                    padding: 20px;
+                    border-bottom: 1px solid $color_grey_light;
+                    .btc {
+                        width: 36px;
+                        height: 36px;
+                        margin-top: 15px;
+                    }
+                    .btc-detail {
+                        display: flex;
+                        flex-direction: column;
+                        margin-left: 20px;
+                        flex-grow: 1;
+                        .row {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            .dark {
+                                font-size: 18px;
+                                font-family: 'Roboto-Bold';
+                                color: $color_dark_text;
+                                margin-bottom: 10px;
+                            }
+                            .light {
+                                font-size: 16px;
+                                font-family: 'Roboto-Bold';
+                                color: $color_light_text;
+                                margin-bottom: 5px;
+                            }
+                            .button {
+                                border: 1px solid $color_light_text;
+                                padding: 5px;
+                                font-size: 14px;
+                                font-family: 'Roboto-Medium';
+                                color: $color_dark_text;
+                                border-radius: 10px;
+                                cursor: pointer;
+                                i {
+                                    margin-right: 5px;
+                                }
+                                transition: 0.2s;
+                                &.active {
+                                    transition: 0.2s;
+                                    color: $color_white;
+                                    background-color: $color_dark_text;
+                                }
+                            }
+                        }
+                        .deposit-block {
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: 10px;
+                            margin-right: 50px;
+                            .db-header {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                margin-bottom: 20px;
+                                .title {
+                                    font-size: 18px;
+                                    font-family: 'Roboto-Bold';
+                                    color: $color_dark_text;
+                                }
+                                i {
+                                    color: $color_light_text;
+                                    margin-right: -50px;
+                                }
+                            }
+                            .send {
+                                font-size: 14px;
+                                font-family: 'Roboto-Bold';
+                                color: $color_dark_text;
+                                margin-bottom: 10px;                            
+                            }
+                            .btc-price {
+                                display: flex;
+                                flex-direction: row;
+                                border-bottom: 1px solid $color_dark_text;
+                                padding-bottom: 10px;
+                                &.single {
+                                    margin-top: 30px;
+                                }
+                                &.noborder {
+                                    border: none;
+                                }
+                                img {
+                                    width: 28px;
+                                    height: 28px;
+                                    margin-right: 10px;
+                                }
+                                .btc-text {
+                                    font-size: 18px;
+                                    font-family: 'Roboto-Medium';
+                                    color: $color_dark_text;
+                                    margin: auto 0;
+                                }
+                                .price {
+                                    font-size: 20px;
+                                    font-family: 'Roboto-Medium';
+                                    color: $color_black;
+                                    margin-left: auto;
+                                }
+                                i {
+                                    margin: auto 0;
+                                    margin-left: 5px;
+                                }
+                            }
+                            .QR {
+                                width: 150px;
+                                height: 150px;
+                                margin: 20px auto;
+                            }
+                            .copy {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                margin-bottom: 20px;
+                                .text {
+                                    font-size: 12px;
+                                    color: $color_dark_text;
+                                }
+                                i {
+                                    font-size: 12px;
+                                    margin: auto 0;
+                                    margin-left: 10px;
+                                    color: $color_orange;
+                                }
+                            }
+                            .sp-row {
+                                display: flex;
+                                flex-direction: row;
+                                .line {
+                                    height: 1px;
+                                    background: $color_dark_text;
+                                    flex-grow: 1;
+                                    margin: auto 0;
+                                    margin-right: 10px;
+                                }
+                                .icon {
+                                    margin-left: auto;
+                                    width: 30px;
+                                    height: 30px;
+                                    background-color: $color_dark_text;
+                                    border-radius: 100%;
+                                    text-align: center;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    i {
+                                        color: $color_white;
+                                    }
+                                }
+                            }
+                            .all-but {
+                                color: $color_light_text;
+                                border: 1px solid $color_light_text;
+                                font-size: 12px;
+                                padding: 5px 20px;
+                                border-radius: 20px;
+                                text-align: center;
+                                width: 80px;
+                                margin: 20px auto;
+                            }
+                            .warning {
+                                display: flex;
+                                flex-direction: row;
+                                padding: 5px 10px;
+                                background-color: $color_panel_back;
+                                border-radius: 10px;
+                                margin-bottom: 20px;
+                                .timage {
+                                    min-width: 40px;
+                                    height: 40px;
+                                    border-radius: 100%;
+                                    background: $color_dark_text;
+                                    margin: auto 0;
+                                    margin-right: 10px;
+                                }
+                                .text {
+                                    font-size: 12px;
+                                    color: $color_light_text;
+                                }
+                            }
+                            .seperator {
+                                margin: 10px;
+                                background-color: $color_light_text;
+                                height: 1px;
+                            }
+                            .detail {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                margin: 0 20px 5px 10px;
+                                .text {
+                                    color: $color_light_text;
+                                    font-size: 12px;
+                                    margin: auto 0;
+                                    &.bold {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                            .paste-address {
+                                display: flex;
+                                flex-direction: row;
+                                margin: 20px 10px;
+                                justify-content: space-between;
+                                padding: 5px 10px;
+                                border: 1px solid $color_light_text;
+                                border-radius: 30px;
+                                .qrcode {
+                                    width: 20px;
+                                    height: 20px;
+                                }
+                                input {
+                                    font-family: 'Roboto-Bold';                
+                                    font-size: 12px;
+                                    line-height: 19px;
+                                    background: none;
+                                    border: none;
+                                    color: $color_white;
+                                    &:focus {
+                                        outline: none;
+                                    }
+                                }
+                            }
+                            .withdraw-button {
+                                background-color: $color_gra_end;
+                                border-radius: 100px;
+                                text-align: center;
+                                padding: 10px;
+                                cursor: pointer;
+                                color: $color_white;
+                                font-family: 'Roboto-Bold';
+                            }
+                        }
+                    }
+                }
             }
         }
-        .img-user {
-            widows: 28px;
-            height: 28px;
-            margin: auto 0;
-            cursor: pointer;
-            @include responsive(mobile) {
-                display: none;
+    }
+    @include responsive(mobile) {
+        .panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 330px;
+            background: $color_white;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+            .panel-header {
+                padding: 30px 50px;
+                background-color: $color_panel_back;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .title {
+                    display: flex;
+                    flex-direction: column;
+                    .text {
+                        color: $color_background;
+                        font-family: 'Roboto-Bold';
+                        font-size: 20px;
+                    }
+                    .bar {
+                        background-color: $color_red;
+                        width: 40px;
+                        border-radius: 10px;
+                        height: 10px;
+                        margin-top: 10px;
+                    }
+                }
+                i {
+                    color: $color_grey_light;
+                    cursor: pointer;
+                }
+            }
+            .panel-body {
+                display: flex;
+                flex-direction: column;
+                background-color: $color_white;
+                .ctrl-row {
+                    display: flex;
+                    flex-direction: row;
+                    padding: 10px;
+                    border-bottom: 1px solid $color_grey_light;
+                    .btc {
+                        width: 28px;
+                        height: 28px;
+                        margin-top: 15px;
+                    }
+                    .btc-detail {
+                        display: flex;
+                        flex-direction: column;
+                        margin-left: 10px;
+                        flex-grow: 1;
+                        .row {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            .dark {
+                                font-size: 16px;
+                                font-family: 'Roboto-Bold';
+                                color: $color_dark_text;
+                                margin-bottom: 10px;
+                            }
+                            .light {
+                                font-size: 16px;
+                                font-family: 'Roboto-Bold';
+                                color: $color_light_text;
+                                margin-bottom: 5px;
+                            }
+                            .button {
+                                border: 1px solid $color_light_text;
+                                padding: 5px;
+                                font-size: 14px;
+                                font-family: 'Roboto-Medium';
+                                color: $color_dark_text;
+                                border-radius: 10px;
+                                cursor: pointer;
+                                i {
+                                    margin-right: 5px;
+                                }
+                                transition: 0.2s;
+                                &.active {
+                                    transition: 0.2s;
+                                    color: $color_white;
+                                    background-color: $color_dark_text;
+                                }
+                            }
+                        }
+                        .deposit-block {
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: 10px;
+                            .db-header {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                margin-bottom: 20px;
+                                .title {
+                                    font-size: 18px;
+                                    font-family: 'Roboto-Bold';
+                                    color: $color_dark_text;
+                                }
+                                i {
+                                    color: $color_light_text;
+                                }
+                            }
+                            .send {
+                                font-size: 14px;
+                                font-family: 'Roboto-Bold';
+                                color: $color_dark_text;
+                                margin-bottom: 10px;                            
+                            }
+                            .btc-price {
+                                display: flex;
+                                flex-direction: row;
+                                border-bottom: 1px solid $color_dark_text;
+                                padding-bottom: 10px;
+                                &.single {
+                                    margin-top: 30px;
+                                }
+                                &.noborder {
+                                    border: none;
+                                }
+                                img {
+                                    width: 28px;
+                                    height: 28px;
+                                    margin-right: 10px;
+                                }
+                                .btc-text {
+                                    font-size: 18px;
+                                    font-family: 'Roboto-Medium';
+                                    color: $color_dark_text;
+                                    margin: auto 0;
+                                }
+                                .price {
+                                    font-size: 20px;
+                                    font-family: 'Roboto-Medium';
+                                    color: $color_black;
+                                    margin-left: auto;
+                                }
+                                i {
+                                    margin: auto 0;
+                                    margin-left: 5px;
+                                }
+                            }
+                            .QR {
+                                width: 150px;
+                                height: 150px;
+                                margin: 20px auto;
+                            }
+                            .copy {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                margin-bottom: 20px;
+                                .text {
+                                    font-size: 12px;
+                                    color: $color_dark_text;
+                                }
+                                i {
+                                    font-size: 12px;
+                                    margin: auto 0;
+                                    margin-left: 10px;
+                                    color: $color_orange;
+                                }
+                            }
+                            .sp-row {
+                                display: flex;
+                                flex-direction: row;
+                                .line {
+                                    height: 1px;
+                                    background: $color_dark_text;
+                                    flex-grow: 1;
+                                    margin: auto 0;
+                                    margin-right: 10px;
+                                }
+                                .icon {
+                                    margin-left: auto;
+                                    width: 30px;
+                                    height: 30px;
+                                    background-color: $color_dark_text;
+                                    border-radius: 100%;
+                                    text-align: center;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    i {
+                                        color: $color_white;
+                                    }
+                                }
+                            }
+                            .all-but {
+                                color: $color_light_text;
+                                border: 1px solid $color_light_text;
+                                font-size: 12px;
+                                padding: 5px 20px;
+                                border-radius: 20px;
+                                text-align: center;
+                                width: 80px;
+                                margin: 20px auto;
+                            }
+                            .warning {
+                                display: flex;
+                                flex-direction: row;
+                                padding: 5px 10px;
+                                background-color: $color_panel_back;
+                                border-radius: 10px;
+                                margin-bottom: 20px;
+                                .timage {
+                                    min-width: 40px;
+                                    height: 40px;
+                                    border-radius: 100%;
+                                    background: $color_dark_text;
+                                    margin: auto 0;
+                                    margin-right: 10px;
+                                }
+                                .text {
+                                    font-size: 12px;
+                                    color: $color_light_text;
+                                }
+                            }
+                            .seperator {
+                                margin: 10px;
+                                background-color: $color_light_text;
+                                height: 1px;
+                            }
+                            .detail {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                margin: 0 20px 5px 10px;
+                                .text {
+                                    color: $color_light_text;
+                                    font-size: 12px;
+                                    margin: auto 0;
+                                    &.bold {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                            .paste-address {
+                                display: flex;
+                                flex-direction: row;
+                                margin: 20px 10px;
+                                justify-content: space-between;
+                                padding: 5px 10px;
+                                border: 1px solid $color_light_text;
+                                border-radius: 30px;
+                                .qrcode {
+                                    width: 20px;
+                                    height: 20px;
+                                }
+                                input {
+                                    font-family: 'Roboto-Bold';                
+                                    font-size: 12px;
+                                    line-height: 19px;
+                                    background: none;
+                                    border: none;
+                                    color: $color_white;
+                                    &:focus {
+                                        outline: none;
+                                    }
+                                }
+                            }
+                            .withdraw-button {
+                                background-color: $color_gra_end;
+                                border-radius: 100px;
+                                text-align: center;
+                                padding: 10px;
+                                cursor: pointer;
+                                color: $color_white;
+                                font-family: 'Roboto-Bold';
+                            }
+                        }
+                    }
+                }
             }
         }
     }

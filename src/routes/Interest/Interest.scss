@@ -164,6 +164,7 @@
                 }
                 .borrow-button {
                     border: 1px solid $color_green_light;
+                    background-color: $color_green_light;
                     color: $color_white;
                     font-size: 14px;
                     padding: 10px 40px;
@@ -178,7 +179,6 @@
                 }
                 .withdraw-button {
                     border: 1px solid $color_green_light;
-                    background-color: $color_green_light;
                     color: $color_white;
                     font-size: 14px;
                     padding: 10px 40px;

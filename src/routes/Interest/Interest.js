@@ -105,15 +105,15 @@ class Interest extends Component {
                         </div>
                         <div className="buttons">                            
                             <div className="borrow-button" onClick={() => { 
+                                this.props.history.push('/lend')}}>DEPOSIT</div>        
+                            <div className="withdraw-button" onClick={() => { 
                                 this.props.updateWithdraw({withdraw: 'lend'})
                                 this.props.history.push('/withdraw')}}>WITHDRAW</div>
-                            <div className="withdraw-button" onClick={() => { 
-                                this.props.history.push('/lend')}}>DEPOSIT</div>
                         </div>
                     </div>
                     <div className="apm-block mobile">
                         <div className="usdt-apm">USDT APM</div>
-                        <div className="apm">                            
+                        <div className="apm">
                             <div className="value">{this.props.apm}</div>
                             <div className="percent">%</div>
                         </div>
