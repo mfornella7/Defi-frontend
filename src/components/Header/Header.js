@@ -5,9 +5,17 @@ import { withRouter }       from 'react-router-dom'
 
 import Img_Logo         from '../../assets/image/home/logo.png';
 import Img_Menu         from '../../assets/image/menu.png';
-import Img_BTC          from '../../assets/image/borrow/btc.png';
 import Img_QR           from '../../assets/image/borrow/QR.png';
 import Img_QRCode       from '../../assets/image/home/QR.png';
+
+import Img_BTC          from '../../assets/image/borrow/btc.png';
+import Img_Tether           from '../../assets/image/home/tether.png';
+import Img_USDCoin          from '../../assets/image/home/usdcoin.png';
+import Img_Dai              from '../../assets/image/home/dai.png';
+import Img_TrueUSD          from '../../assets/image/home/trueusd.png';
+import Img_Paxos            from '../../assets/image/home/paxos.png';
+import Img_Binance          from '../../assets/image/home/binanceusd.png';
+import Img_HUSD             from '../../assets/image/home/husd.png';
 
 import './Header.scss';
 
@@ -16,19 +24,46 @@ class Header extends Component {
         super(props);
         this.state = {
             isShow: false,
-            tab: 0,
+            tab: -1,
+            assets: [
+                {img: Img_Tether, name: 'Tether'},
+                {img: Img_USDCoin, name: 'USD Coin'},
+                {img: Img_Dai, name: 'Dai'},
+                {img: Img_TrueUSD, name: 'TrueUSD'},
+                {img: Img_Paxos, name: 'Paxos'},
+                {img: Img_Binance, name: 'Binance USD'},
+                {img: Img_HUSD, name: 'HUSD'},
+            ]
         };
+        this.wrapperRef = React.createRef();
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && this.wrapperRef.current && !this.wrapperRef.current.contains(event.target)) {
+            if (this.state.isShow)
+                this.setState({
+                    isShow: false,
+                })
+        }
     }
 
     renderMobile() {
-        if (window.innerWidth < 1080) {
-            return <img className="menu" src={Img_Menu} alt="" onClick={() => {
-                this.props.history.push('/defi')
-            }}/>
-        }
-        return(
-            <div/>
-        )
+        return <img className="menu" src={Img_Menu} alt="" onClick={() => {
+            this.props.history.push('/market')
+        }}/>
+    }
+
+    openCamera() {
+
     }
 
     render() {
@@ -40,10 +75,6 @@ class Header extends Component {
                         <img src={Img_Logo} alt=""/>
                         <div className="text">Dashboard</div>
                     </div>
-                    <div className="tab">
-                        <img src={Img_Logo} alt=""/>
-                        <div className="text">Assets</div>
-                    </div>
                 </div>
                 <div className="settings" onClick={() => {
                     this.setState({ isShow: true })
@@ -51,7 +82,7 @@ class Header extends Component {
                     <i className='fas fa-wallet'></i>
                 </div>
                 {this.state.isShow?
-                    <div className="panel">
+                    <div className="panel" ref={this.wrapperRef}>
                         <div className="panel-header">
                             <div className="title">
                                 <div className="text">My Balances</div>
@@ -68,7 +99,7 @@ class Header extends Component {
                                 <img src={Img_BTC} alt="" className="btc"/>
                                 <div className="btc-detail">
                                     <div className="row">
-                                        <div className="dark">Bitcon</div>
+                                        <div className="dark">Bitcoin</div>
                                         <div className="dark">6.0944BTC</div>
                                     </div>
                                     <div className="row">
@@ -81,28 +112,30 @@ class Header extends Component {
                                                 this.setState({tab: 0});
                                             }}
                                         >
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <i className="fa fa-paper-plane" aria-hidden="true"></i>
                                             Deposit</div>
                                         <div className={this.state.tab === 1?"button active":"button"}
                                             onClick={() => {
                                                 this.setState({tab: 1});
                                             }}
                                         >
-                                            <i class="fa fa-download" aria-hidden="true"></i>
+                                            <i className="fa fa-download" aria-hidden="true"></i>
                                             Withdraw</div>
                                         <div className={this.state.tab === 2?"button active":"button"}
                                             onClick={() => {
                                                 this.setState({tab: 2});
                                             }}
                                         >
-                                            <i class="fa fa-random" aria-hidden="true"></i>
+                                            <i className="fa fa-random" aria-hidden="true"></i>
                                             Exchange</div>
                                     </div>
                                     {this.state.tab === 0 ?
                                         <div className="deposit-block">
                                             <div className="db-header">
                                                 <div className="title">Deposit</div>
-                                                <i className='fa fa-times'></i>
+                                                <i className='fa fa-times' onClick={() => {
+                                                    this.setState({tab: -1})
+                                                }}></i>
                                             </div>
                                             <div className="send">send</div>
                                             <div className="btc-price">
@@ -120,7 +153,9 @@ class Header extends Component {
                                         <div className="deposit-block">
                                         <div className="db-header">
                                             <div className="title">Withdraw</div>
-                                            <i className='fa fa-times'></i>
+                                            <i className='fa fa-times' onClick={() => {
+                                                this.setState({tab: -1})
+                                            }}></i>
                                         </div>
                                         <div className="send">balance</div>
                                         <div className="btc-price">
@@ -129,7 +164,7 @@ class Header extends Component {
                                             <div className="price">1.00000000</div>                                        
                                         </div>
                                         <div className="btc-price single">
-                                            <div className="price">1.00000000</div>                                        
+                                            <div className="price single">1.00000000</div>                                        
                                         </div>
                                         <div className="all-but">All</div>
                                         <div className="detail">
@@ -145,7 +180,7 @@ class Header extends Component {
                                             <div className="text">You will get:</div>
                                             <div className="text bold">0.00037276 BTC</div>
                                         </div>
-                                        <div className="paste-address">
+                                        <div className="paste-address" onClick={() => this.openCamera()}>
                                             <input placeholder="Tap to paste address..."/>
                                             <img src={Img_QRCode} alt="" className="qrcode"/>
                                         </div>
@@ -155,7 +190,9 @@ class Header extends Component {
                                         <div className="deposit-block">
                                             <div className="db-header">
                                                 <div className="title">Exchange</div>
-                                                <i className='fa fa-times'></i>
+                                                <i className='fa fa-times' onClick={() => {
+                                                    this.setState({tab: -1})
+                                                }}></i>
                                             </div>
                                             <div className="send">I have 0.032221132 Bitcoin</div>
                                             <div className="btc-price noborder">
@@ -185,54 +222,39 @@ class Header extends Component {
                                         </div>:(null)}
                                 </div>
                             </div>
-                            <div className="ctrl-row">
-                                <img src={Img_BTC} alt="" className="btc"/>
-                                <div className="btc-detail">
-                                    <div className="row">
-                                        <div className="dark">Bitcon</div>
-                                        <div className="dark">6.0944BTC</div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="light">Contract Balance</div>
-                                        <div className="light">6.0944BTC</div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="button">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            Deposit</div>
-                                        <div className="button">
-                                            <i class="fa fa-download" aria-hidden="true"></i>
-                                            Withdraw</div>
-                                        <div className="button">
-                                            <i class="fa fa-random" aria-hidden="true"></i>
-                                            Exchange</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="ctrl-row">
-                                <img src={Img_BTC} alt="" className="btc"/>
-                                <div className="btc-detail">
-                                    <div className="row">
-                                        <div className="dark">Bitcon</div>
-                                        <div className="dark">6.0944BTC</div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="light">Contract Balance</div>
-                                        <div className="light">6.0944BTC</div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="button">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            Deposit</div>
-                                        <div className="button">
-                                            <i class="fa fa-download" aria-hidden="true"></i>
-                                            Withdraw</div>
-                                        <div className="button">
-                                            <i class="fa fa-random" aria-hidden="true"></i>
-                                            Exchange</div>
-                                    </div>
-                                </div>
-                            </div>
+                            {this.state.assets.map(asset => {
+                                return (
+                                    <div className="ctrl-row" key={asset.name}>
+                                        <img src={asset.img} alt="" className="btc"/>
+                                        <div className="btc-detail">
+                                            <div className="row">
+                                                <div className="dark">{asset.name}</div>
+                                                <div className="dark">6.0944BTC</div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="light">Contract Balance</div>
+                                                <div className="light">6.0944BTC</div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="button" onClick={() => {
+                                                this.setState({tab: 0});
+                                                }}>
+                                                    <i className="fa fa-paper-plane" aria-hidden="true"></i>
+                                                    Deposit</div>
+                                                <div className="button" onClick={() => {
+                                                    this.setState({tab: 1});
+                                                }}>
+                                                    <i className="fa fa-download" aria-hidden="true"></i>
+                                                    Withdraw</div>
+                                                <div className="button" onClick={() => {
+                                                    this.setState({tab: 2});
+                                                }}>
+                                                    <i className="fa fa-random" aria-hidden="true"></i>
+                                                    Exchange</div>
+                                            </div>
+                                        </div>
+                                    </div>);
+                            })}
                         </div>
                     </div>:(null)}
             </div>

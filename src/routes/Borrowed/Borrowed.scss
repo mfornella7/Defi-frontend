@@ -53,6 +53,9 @@
         flex-direction: row;
         right: 20px;
         top: 80px;
+        @include responsive(mobile) {
+            right: 0px;
+        }
         .left {
             border-right: 1px solid $color_border;
             .top {

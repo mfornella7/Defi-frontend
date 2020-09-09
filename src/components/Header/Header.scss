@@ -195,6 +195,9 @@
                                     font-family: 'Roboto-Medium';
                                     color: $color_black;
                                     margin-left: auto;
+                                    &.single {
+                                        margin: 0 auto;
+                                    }
                                 }
                                 i {
                                     margin: auto 0;
@@ -477,6 +480,9 @@
                                     font-family: 'Roboto-Medium';
                                     color: $color_black;
                                     margin-left: auto;
+                                    &.single {
+                                        margin: 0 auto;
+                                    }
                                 }
                                 i {
                                     margin: auto 0;
