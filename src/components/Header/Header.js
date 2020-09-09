@@ -154,7 +154,7 @@ class Header extends Component {
                                                     <div className="btc-price">
                                                         <img src={asset.img} alt=""/>
                                                         <div className="btc-text">{asset.name}</div>
-                                                        <div className="price">1.00000000</div>                                        
+                                                        <input className="price" placeholder="" defaultValue="1.0000000"/>
                                                     </div>
                                                     <img src={Img_QR} alt="" className="QR"/>
                                                     <div className="copy">
@@ -174,10 +174,10 @@ class Header extends Component {
                                                 <div className="btc-price">
                                                     <img src={asset.img} alt=""/>
                                                     <div className="btc-text">{asset.name}</div>
-                                                    <div className="price">1.00000000</div>                                        
+                                                    <input className="price" placeholder="" defaultValue="1.0000000"/>
                                                 </div>
                                                 <div className="btc-price single">
-                                                    <div className="price single">1.00000000</div>                                        
+                                                    <input className="price single" placeholder="" defaultValue="1.0000000"/>                                   
                                                 </div>
                                                 <div className="all-but">All</div>
                                                 <div className="detail">
@@ -211,7 +211,7 @@ class Header extends Component {
                                                     <div className="btc-price noborder">
                                                         <img src={asset.img} alt=""/>
                                                         <div className="btc-text">{asset.name}</div>
-                                                        <div className="price">1.00000000</div>                                        
+                                                        <input className="price" placeholder="" defaultValue="1.0000000"/>
                                                     </div>
                                                     <div className="sp-row">
                                                         <div className="line"/>
@@ -224,7 +224,7 @@ class Header extends Component {
                                                         <img src={Img_BTC} alt=""/>
                                                         <div className="btc-text">USDT</div>
                                                         <i className='fa fa-caret-down'></i>
-                                                        <div className="price">1.00000000</div>                                        
+                                                        <input className="price" placeholder="" defaultValue="1.0000000"/>
                                                     </div>
                                                     <div className="all-but">All</div>
                                                     <div className="warning">

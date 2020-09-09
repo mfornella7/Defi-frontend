@@ -193,9 +193,15 @@
                                     font-size: 20px;
                                     font-family: 'Roboto-Medium';
                                     color: $color_black;
-                                    margin-left: auto;
+                                    background: none;
+                                    border: none;
+                                    text-align: right;
+                                    &:focus {
+                                        outline: none;
+                                    }
                                     &.single {
-                                        margin: 0 auto;
+                                        width: 100%;
+                                        text-align: center;
                                     }
                                 }
                                 i {
@@ -478,9 +484,15 @@
                                     font-size: 20px;
                                     font-family: 'Roboto-Medium';
                                     color: $color_black;
-                                    margin-left: auto;
+                                    background: none;
+                                    border: none;
+                                    text-align: right;
+                                    width: 100%;
+                                    &:focus {
+                                        outline: none;
+                                    }
                                     &.single {
-                                        margin: 0 auto;
+                                        text-align: center;
                                     }
                                 }
                                 i {
